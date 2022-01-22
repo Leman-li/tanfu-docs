@@ -18,5 +18,5 @@ features:
   - icon: https://gw.alipayobjects.com/zos/bmw-prod/f093e060-726e-471c-a53e-e988ed3f560c/kj9t9sk7_w144_h144.png
     title: 插件机制
     desc: 插件机制可以为框架注入全局功能和视图渲染
-footer: Open-source MIT Licensed | Copyright © 2020<br />Powered by leman
+footer: Open-source MIT Licensed | Copyright © 2022<br />Powered by leman
 ---
