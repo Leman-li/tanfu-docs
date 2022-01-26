@@ -34,7 +34,7 @@
     "rc-tabs": "^11.7.1",
     "rc-tree": "^5.2.0",
     "react": "^17.0.2",
-    "tanfu-react": "^1.0.0-beta.5"
+    "tanfu-react": "^1.0.0-beta.6"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.15.1",

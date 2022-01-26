@@ -27,12 +27,102 @@ yarn add tanfu-react
 
 创建 ui 组件 A
 
+```js
+ import React from 'react'
+import { createUI } from 'tanfu-react'
+
+export interface AProps {
+    count?: number
+}
+const A = createUI(function ({ count }: AProps) {
+    return <div>A组件{count}</div>
+})
+
+export default A;
+```
+<br/>
+
 <code src="../../src/demo/A.tsx"></code>
 
 创建 ui 组件 B
+
+```js
+ import React from 'react'
+import { createUI } from 'tanfu-react'
+
+export interface BProps {
+    onClick?: () => void
+}
+const B = createUI(function ({ onClick }: BProps) {
+    return <div onClick={onClick}>B组件 点击</div>
+})
+
+export default B;
+```
+
+<br/>
 
 <code src="../../src/demo/B.tsx"></code>
 
 ## 创建容器组件及Controller
 
-<code src="../../src/demo/C.tsx"></code>
+```js
+
+ import React from 'react'
+import { Controller, createContainer, Engine } from 'tanfu-react'
+import A, { AProps } from './A'
+import B, { BProps } from './B'
+
+type ViewModel = {
+    elementA: AProps,
+    elementB: BProps
+}
+
+export class AppController extends Controller<ViewModel> {
+
+    // 此处可以不用重写, 当需要扩展该 Controller 时则必须重写
+    getName(): string | void {
+        return 'AppController'
+    }
+
+    // 此处抽离出业务逻辑
+    increase(): number {
+        return (this.engine?.getState('elementA').count ?? 0) + 1
+    }
+
+    apply(engine: Engine<ViewModel>) {
+        engine.didMount('elementA', () => {
+            engine.setState({
+                elementA: {
+                    count: 0
+                }
+            })
+        })
+
+        engine.injectCallback('elementB', 'onClick', () => {
+            engine.setState({
+                elementA: {
+                    count: this.increase()
+                }
+            })
+        })
+    }
+}
+
+const App = createContainer(function () {
+    return (
+        <div>
+            <A elementId='elementA' />
+            <B elementId='elementB' />
+        </div>
+    )
+}, [new SelfController()])
+
+export default App
+
+```
+<br/>
+
+<code src="../../src/demo/App.tsx"></code>
+
+至此你就完成容器组件C的视图和业务逻辑的分离

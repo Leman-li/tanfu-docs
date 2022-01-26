@@ -8,11 +8,11 @@ type ViewModel = {
     elementB: BProps
 }
 
-export class SelfController extends Controller<ViewModel> {
+export class AppController extends Controller<ViewModel> {
 
     // 此处可以不用重写
     getName(): string | void {
-        return 'selfController'
+        return 'AppController'
     }
 
     // 此处抽离出业务逻辑
@@ -39,13 +39,13 @@ export class SelfController extends Controller<ViewModel> {
     }
 }
 
-const C = createContainer(function () {
+const App = createContainer(function () {
     return (
         <div>
             <A elementId='elementA' />
             <B elementId='elementB' />
         </div>
     )
-}, [new SelfController()])
+}, [new AppController()])
 
-export default C
+export default App

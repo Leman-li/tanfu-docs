@@ -35,4 +35,4 @@ Create UI component B
 
 ## Create container component and controller
 
-<code src="../../src/demo/C.tsx"></code>
+<code src="../../src/demo/App.tsx"></code>
