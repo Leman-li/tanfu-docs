@@ -1,7 +1,7 @@
 ---
 hero:
   title: Tanfu
-  desc: 一个高扩展、易定开、业务逻辑与视图分离，遵循 MVC/MVVM 模式的开发框架
+  desc: 一个高扩展、易于定制化开发、业务逻辑与视图分离开发框架
   bgImage: https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xOYlR4e8ihIAAAAAAAAAAABkARQnAQ
   actions:
     - text: 开始

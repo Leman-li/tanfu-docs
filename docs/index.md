@@ -1,7 +1,7 @@
 ---
 hero:
   title: Tanfu
-  desc: A high expansion, easy to open, business logic and view separation, follow the MVC/MVVM model of the development framework
+  desc: A development framework with high scalability, easy to customize development, business logic and view separation
   bgImage: https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xOYlR4e8ihIAAAAAAAAAAABkARQnAQ
   actions:
     - text: Getting Started

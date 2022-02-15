@@ -116,3 +116,80 @@ class SpecialController extends Controller{
    }
 }
 ```
+
+## Engine
+
+### setState(states: Record<ElementId,ElementProps>)
+
+该方法为设置某个视图的状态值
+
+如
+
+```js
+   engine.setState({
+       element1:{
+           value: 1
+       },
+       element2:{
+           value: 2
+       }
+   })
+```
+
+### getState(elementId)
+
+该方法为获取某个视图的状态值
+
+如
+```js
+   const { value } = engine.getState('element1')
+
+```
+
+### injectCallback(elementId,callbackName, callbackBody)
+
+该方法是对某个视图注入回调函数
+
+如
+```js
+  engine.injectCallback('button1', 'onClick', ()=>{
+      engine.setState({
+          element1:{
+              value: 5
+          }
+      })
+  })
+```
+
+### watchElement(elementId, watchFn, deps)
+
+该方法监听某个视图的状态变化
+
+```js
+  engine.watchElement('element1',()=>{
+
+  },['value'])
+```
+
+### willUnmount(elementId, fn)
+
+该方法为某个视图将卸载时触发
+
+如
+```js
+   engine.willUnmount('element1',()=>{
+
+   })
+```
+
+### didMount(elementId, fn)
+
+该方法为某个视图加载时触发
+
+如
+```js
+
+    engine.didMount('element1',()=>{
+        
+    })
+```

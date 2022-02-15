@@ -1,5 +1,5 @@
 ---
-title: intro
+title: Intro
 order: 1
 toc: menu
 nav:
